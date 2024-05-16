@@ -1,0 +1,11 @@
+.base_btn {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 5px 5px;
+  cursor: pointer;
+  box-shadow: none;
+  border: none;
+  border-radius: 1em;
+  height:100%;
+}

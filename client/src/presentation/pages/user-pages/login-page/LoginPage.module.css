@@ -1,0 +1,39 @@
+.login_page_wrapper {
+  width: 25%;
+  margin: auto;
+  margin-top: 10rem;
+  background-color: var(--light-primary-color);
+  padding: 20px;
+  border-radius: 0.5em;
+  box-shadow: var(--box-shadow);
+}
+
+.login_page_wrapper button {
+  margin-top: 10px;
+  height: 2.5em;
+}
+.login_page_field {
+  margin-top: 10px;
+}
+
+.login_page_errormsg {
+  background-color: red;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+@media only screen and (max-width: 1080px) and (min-width: 600px) {
+  .login_page_wrapper {
+    width: 70%;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login_page_wrapper {
+    width: 90%;
+    padding: 10px;
+  }
+}

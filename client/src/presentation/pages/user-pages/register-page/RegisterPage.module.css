@@ -1,0 +1,67 @@
+.register_page_wrapper {
+  width: 25%;
+  margin: auto;
+  margin-top: 1rem;
+  background-color: var(--light-primary-color);
+  padding: 20px;
+  border-radius: 0.5em;
+  box-shadow: var(--box-shadow);
+}
+
+.register_page_wrapper input label {
+  margin-top: 20px;
+}
+
+.register_page_wrapper button {
+  margin-top: 10px;
+  height: 2.5em;
+}
+.register_page_field {
+  margin-top: 10px;
+}
+.register_page_wrapper button {
+  margin-top: 10px;
+}
+.register_page_field {
+  margin-top: 10px;
+}
+
+.register_page__header h1 {
+  color: var(--black-color);
+  text-align: center;
+  margin-top: 2em;
+  font-weight: 300;
+}
+
+.already_registered_msg {
+  margin-top: 1em;
+}
+
+.errors_msg {
+  background-color: red;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.success_msg {
+  color: var(--primary-color);
+  width: 100%;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+@media only screen and (max-width: 1080px) and (min-width: 600px) {
+  .register_page_wrapper {
+    width: 70%;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .register_page_wrapper {
+    width: 90%;
+    padding: 10px;
+  }
+}
