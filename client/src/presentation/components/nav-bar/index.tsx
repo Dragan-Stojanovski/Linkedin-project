@@ -56,7 +56,7 @@ setIsDropdownVisible(false)
             alt="Logo"
           />
         </Link>
-        <div className={styles.search_bar__wrapper}>
+        {/* <div className={styles.search_bar__wrapper}>
         {userData !== null && <form onSubmit={handleSubmit((formData) => {
           searchUsersInfo({searchTerm: formData.searchTerm})
         })}>
@@ -82,13 +82,12 @@ setIsDropdownVisible(false)
     "No results to be shown"
   )}
   </div>
-  </div>
-      </div>
+  </div>*/}
+      </div> 
  
       <div>
  
 </div>
-
       {!isProtectedRoute && (
         <div className={styles.navbar_box}>
           <div className={styles.nav_items_wrapper}>
@@ -100,11 +99,9 @@ setIsDropdownVisible(false)
             </div>
           ) : (
             <div className={styles.profile_option__wrapper}>
-              {/* User's username as a button to toggle the dropdown */}
               <button onClick={toggleDropdown} className={styles.username_displayed}>
               <GrUserManager /> {userData.username}
-              </button>
-              {/* Dropdown menu */}
+              </button> 
               {isDropdownVisible && (
                 <div className={styles.dropdown_menu}>
                   {userOptions.map((option) => (
