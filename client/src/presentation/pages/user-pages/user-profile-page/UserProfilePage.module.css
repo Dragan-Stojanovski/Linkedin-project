@@ -1,0 +1,15 @@
+.user_details__wrapper{
+    display:flex;
+    width:40%;
+    justify-content: space-between;
+    margin:auto;
+    margin-top:5em;
+}
+
+.user_details__box button{
+    border:none;
+    padding:10px;
+    border-radius:50%;
+    font-size:1.2rem;
+    cursor:pointer;
+}

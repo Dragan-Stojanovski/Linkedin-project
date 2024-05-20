@@ -29,4 +29,18 @@ const searchUsers = async (req, res) => {
       res.status(500).send('Server error');
   }
 };
-module.exports = { getUserOwnData, searchUsers };
+
+const updateUser = async (req, res) => {
+  const { username, email } = req.body;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user.userId,
+      { username, email },
+      { new: true, runValidators: true }
+    ).select('-password');
+    res.json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+module.exports = { getUserOwnData, searchUsers, updateUser };

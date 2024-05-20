@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { loginUser } from "../../../../../data/user/loginUser";
 import { ILoginRequest } from "../../../../../domain/user/loginRequest";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux"; 
 import { useForm } from "react-hook-form";
 import styles from './LoginPageForm.module.css';
@@ -36,7 +36,7 @@ const LoginPageForm = () => {
         fetchUserDirectly(dispatch);
         setTimeout(() => {
           setSuccessMessage(undefined);
-          navigate("/");
+          navigate("/feed");
         }, 3000);
       } catch (error: any) {
         setErrorMessage(error.response?.data.message || "An error occurred");
@@ -69,6 +69,7 @@ const LoginPageForm = () => {
           <div className={styles.login_page_field}>
             <TextField
               name="username"
+              autoComplete="username"
               type="text"
               label="Username"
               testId="loginUsernameField"
@@ -82,6 +83,7 @@ const LoginPageForm = () => {
             <TextField
               name="password"
               type="password"
+              autoComplete="password"
               label="Password"
               testId="loginPasswordField"
               control={control}
@@ -90,6 +92,7 @@ const LoginPageForm = () => {
               }}
             />
           </div>
+          New to LinkedIn? <Link to="/register">Join now</Link>
 
           <div className={styles.register_page_btn}>
             <BaseButton type="submit" content="Log In" />

@@ -3,7 +3,7 @@ import TextField from "../../../components/base-ui/text-field";
 import styles from "./RegisterPage.module.css";
 import { registerNewUser } from "../../../../data/user/requestUser";
 import BaseButton from "../../../components/base-ui/base-button";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SetMetaInfo from "../../../../infra/utility/SetMetaInfo";
 
@@ -31,7 +31,9 @@ export interface IRegisterFormFields {
  * @returns The JSX.Element representing the registration page.
  */
 const RegisterPage: React.FC = (): JSX.Element => {
-  const { handleSubmit, control } = useForm<IRegisterFormFields>();
+  const { handleSubmit, control, watch, trigger, formState } = useForm<IRegisterFormFields>({
+    mode: "onChange",
+  });
   const [errorMsg, setErrorMsg] = useState<undefined | string>(undefined);
   const [successMsg, setSuccessMsg] = useState<undefined | string>(undefined);
 
@@ -55,6 +57,14 @@ const RegisterPage: React.FC = (): JSX.Element => {
       setErrorMsg(error.response.data);
     }
   }
+
+    const passwordField = watch('password');
+
+  useEffect(() => {
+    if(formState.dirtyFields.repeatPassword){
+      trigger('repeatPassword')
+    }
+  }, [ passwordField])
 
   return (
     <Fragment>

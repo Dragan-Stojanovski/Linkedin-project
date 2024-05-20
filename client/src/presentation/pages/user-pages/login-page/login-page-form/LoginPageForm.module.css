@@ -1,15 +1,9 @@
-.login_page_wrapper {
-  
-    background-color: var(--light-primary-color);
-    padding: 20px;
-    border-radius: 0.5em;
-    box-shadow: var(--box-shadow);
-  }
-  
+
   .login_page_wrapper button {
     margin-top: 10px;
     height: 2.5em;
   }
+  
   .login_page_field {
     margin-top: 10px;
   }

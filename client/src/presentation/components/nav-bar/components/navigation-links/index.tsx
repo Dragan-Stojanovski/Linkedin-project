@@ -4,6 +4,11 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { MdArticle, MdWork } from "react-icons/md";
 import { IoPeople } from "react-icons/io5";
 import { SiSololearn } from "react-icons/si";
+import { FaHome } from "react-icons/fa";
+import { AiFillMessage } from "react-icons/ai";
+import { useSelector } from "react-redux";
+import { IRootState } from "../../../../../domain/usecases/store/rootState";
+import { IoMdNotifications } from "react-icons/io";
 
 export interface INavItemsProps {
   path: string;
@@ -19,9 +24,20 @@ const navItems: INavItemsProps[] = [
   { path: "/jobs", icon: <MdWork />, label: "Jobs" },
 ];
 
-const NavigationLinks: React.FC = (): JSX.Element => (
-  <ul>
-    {navItems.map((item) => (
+const authenticatedNavLinks:INavItemsProps[] = [
+  { path: "/feed", icon: <FaHome />, label: "Home" },
+  { path: "/jobs", icon: <MdWork />, label: "Jobs" },
+  { path: "/messaging", icon: <AiFillMessage />, label: "Messaging" },
+  { path: "/notifications", icon: <IoMdNotifications />, label: "Notifications" },
+]
+
+const NavigationLinks: React.FC = (): JSX.Element => {
+  const userData = useSelector((state: IRootState) => state.user?.username);
+  const linksToRender = userData ? authenticatedNavLinks : navItems;
+
+return(
+ <ul>
+    {linksToRender.map((item) => (
       <li key={item.label}>
         <NavLink
           to={item.path}
@@ -33,6 +49,7 @@ const NavigationLinks: React.FC = (): JSX.Element => (
       </li>
     ))}
   </ul>
-);
+)
+};
 
 export default NavigationLinks;

@@ -3,11 +3,10 @@ import styles from "./NavBar.module.css";
 import NavigationLinks from "./components/navigation-links";
 import UserActions from "./components/user-actions";
 import { useDispatch, useSelector } from "react-redux";
-import { IRootState, IUserResponse } from "../../../domain/usecases/store/rootState";
-import { useState } from "react";
+import { IRootState} from "../../../domain/usecases/store/rootState";
+import { useEffect, useState } from "react";
 import { GrUserManager } from "react-icons/gr";
 import { fetchUserDirectly } from "../../../domain/store/actions/getUserOwn";
-import TextField from "../base-ui/text-field";
 import { useForm } from "react-hook-form";
 import { ISearchUserBody, searchUsers } from "../../../data/user/searchUsers";
 
@@ -40,8 +39,6 @@ setIsDropdownVisible(false)
 
   async function searchUsersInfo (searchTerm:ISearchUserBody) {
     const response = await searchUsers(searchTerm);
-    console.log(searchTerm)
-    console.log(response,"Users Response")
     setUserSearchResults(response.data)
     return response;
   }
