@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import NavigationLinks from "./components/navigation-links";
 import UserActions from "./components/user-actions";
@@ -29,12 +29,13 @@ const NavBar: React.FC = (): JSX.Element => {
     { id: 1, label: 'Profile', link: '/profile' },
     { id: 2, label: 'Settings', link: '/settings' },
   ];
-
+const navigate = useNavigate();
   const dispatch = useDispatch();
   function logoutUser () {
-localStorage.removeItem('jwt');
-fetchUserDirectly(dispatch);
-setIsDropdownVisible(false)
+    localStorage.removeItem('jwt');
+    setIsDropdownVisible(false)
+    fetchUserDirectly(dispatch);
+    navigate('/login');
   }
 
   async function searchUsersInfo (searchTerm:ISearchUserBody) {
@@ -102,7 +103,7 @@ setIsDropdownVisible(false)
               {isDropdownVisible && (
                 <div className={styles.dropdown_menu}>
                   {userOptions.map((option) => (
-                    <Link key={option.id} to={option.link} className={styles.dropdownItem}>
+                    <Link onClick={() => setIsDropdownVisible(false)} key={option.id} to={option.link} className={styles.dropdownItem}>
                       {option.label}
                     </Link>
                   ))}

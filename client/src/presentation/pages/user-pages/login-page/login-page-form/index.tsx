@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { loginUser } from "../../../../../data/user/loginUser";
 import { ILoginRequest } from "../../../../../domain/user/loginRequest";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch } from "react-redux"; 
 import { useForm } from "react-hook-form";
 import styles from './LoginPageForm.module.css';
@@ -18,6 +18,8 @@ const LoginPageForm = () => {
     );
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [searchParams] = useSearchParams();
+    const redirectPath = searchParams.get('redirect') || '/feed';
 
   /**
    * Asynchronously authenticates a user based on provided credentials.
@@ -34,10 +36,7 @@ const LoginPageForm = () => {
         localStorage.setItem("jwt", result.data.token);
         setSuccessMessage("Success!");
         fetchUserDirectly(dispatch);
-        setTimeout(() => {
-          setSuccessMessage(undefined);
-          navigate("/feed");
-        }, 3000);
+          navigate(redirectPath);
       } catch (error: any) {
         setErrorMessage(error.response?.data.message || "An error occurred");
       }
