@@ -6,7 +6,7 @@ import instance from "../../infra/http";
  * 
  * @returns A promise that resolves to a list of user posts.
  */
-export async function getUserPosts():Promise<IAddUserPostResponse> {
-  const result:IAddUserPostResponse = await instance.get('/posts')
-    return result
+export async function getUserPosts(): Promise<IAddUserPostResponse[]> {
+  const result = await instance.get<IAddUserPostResponse[]>('/posts');
+  return result.data;
 }

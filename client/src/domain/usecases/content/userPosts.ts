@@ -4,6 +4,7 @@ export interface IAddUserPostRequest {
 }
 
 export interface IAddUserPostResponseData {
+    _id:string;
     postTitle:string;
     postBody:string;
     userId:string;

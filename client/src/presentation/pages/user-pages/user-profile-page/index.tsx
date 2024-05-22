@@ -9,18 +9,23 @@ import UserPostForm from "./components/user-post-form";
 import { IoMdAdd } from "react-icons/io";
 import UserPostsDisplayed from "./components/user-posts-displayed";
 import { getUserPosts } from "../../../../data/content/getUserPosts";
+import { IAddUserPostResponse } from "../../../../domain/usecases/content/userPosts";
 
 const UserProfilePage = ():JSX.Element => {
     const userData = useSelector((state: IRootState) => state.user);
     const [isEditModeVisible,setIsEditModeVisible] = useState(false)
     const [isPostFormVisible,setIsPostFormVisible] = useState(false)
-    const [userPosts, setUserPosts]= useState([])
+    const [userPosts, setUserPosts]= useState<IAddUserPostResponse[]>([])
 
-    async function getUserPostsHandler (){
-        const result = await getUserPosts(); 
-        setUserPosts(result.data);
-            }
-        
+    async function getUserPostsHandler() {
+        try {
+          const result = await getUserPosts();
+          console.log('Fetched user posts:', result);
+          setUserPosts(result);
+        } catch (error) {
+          console.error('Error fetching user posts:', error);
+        }
+      }
             useEffect(() => {
                 getUserPostsHandler();
             }, [])

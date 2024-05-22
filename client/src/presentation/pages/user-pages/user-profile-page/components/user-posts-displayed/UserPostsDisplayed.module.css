@@ -4,6 +4,9 @@
     width:40%;
     margin:auto;  
     margin-top:3em;
+    flex-wrap: wrap;
+  align-content: stretch;
+
 }
 
 .user_posts__box{
@@ -15,5 +18,32 @@
     overflow:hidden;
     height:10rem;
     cursor:pointer;
-
+    box-sizing:border-box;
 }
+
+@media only screen and (max-width: 600px) {
+    
+    .user_posts__wrapper{
+        display:flex;
+        justify-content: space-between;  
+        width:95%;
+        margin:auto;  
+        margin-top:3em;
+        flex-wrap: wrap;
+      align-content: stretch;
+    }
+
+    .user_posts__box{
+        width:100%;
+        border:1px solid var(--light-hover-color);
+        padding:10px;
+        border-radius:1em;
+        box-sizing:border-box;
+        overflow:hidden;
+        height:10rem;
+        cursor:pointer;
+        box-sizing:border-box;
+    margin-top:1em;
+    }
+
+  }
