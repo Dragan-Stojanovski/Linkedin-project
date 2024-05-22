@@ -37,3 +37,30 @@ exports.addPost = async (req, res) => {
       res.status(500).json({ message: "Error in fetching posts: " + error.message });
     }
   };
+
+  exports.getPostByIdOrTitle = async (req, res) => {
+    try {
+      const { id, title } = req.query;
+  
+      if (!id && !title) {
+        return res.status(400).json({ message: "Please provide either an ID or a title to search." });
+      }
+  
+      let post;
+  
+      if (id) {
+        post = await Post.findById(id);
+      } else if (title) {
+        post = await Post.findOne({ postTitle: title });
+      }
+  
+      if (!post) {
+        return res.status(404).json({ message: "Post not found" });
+      }
+  
+      res.status(200).json(post);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error in fetching post: " + error.message });
+    }
+  };

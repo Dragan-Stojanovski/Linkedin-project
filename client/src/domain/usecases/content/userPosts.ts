@@ -3,8 +3,12 @@ export interface IAddUserPostRequest {
     postBody:string;
 }
 
-export interface IAddUserPostResponse {
+export interface IAddUserPostResponseData {
     postTitle:string;
     postBody:string;
     userId:string;
+}
+
+export interface IAddUserPostResponse {
+    data:IAddUserPostResponseData;
 }

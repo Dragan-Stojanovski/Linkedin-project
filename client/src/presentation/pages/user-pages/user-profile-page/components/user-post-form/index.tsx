@@ -2,13 +2,12 @@ import { useForm } from 'react-hook-form';
 import styles from './UserPostForm.module.css';
 import TextField from '../../../../../components/base-ui/text-field';
 import BaseButton from '../../../../../components/base-ui/base-button';
-import { editUserInfo } from '../../../../../../data/user/editUserInfo';
 // import { IRootState } from '../../../../../../domain/usecases/store/rootState';
 import { useDispatch } from 'react-redux';
-import { fetchUserDirectly } from '../../../../../../domain/store/actions/getUserOwn';
 import { IoCloseSharp } from "react-icons/io5";
 import { Dispatch, SetStateAction } from 'react';
 import { addUserPost } from '../../../../../../data/content/addUserPost';
+import QuillEditor from '../../../../../components/base-ui/quil-editor';
 export interface IAddPostRequest {
     postTitle:string;
     postBody:string;
@@ -69,14 +68,10 @@ const UserPostForm = ({setIsPostFormVisible, getUserPostsHandler}:IUserEditModal
             </div>
 
                   <div className={styles.form_element}>
-  <TextField
+                  <QuillEditor
               name="postBody"
-              type="text"
-              label="Body"
               control={control}
-              rules={{
-                required: "Username is required",
-            }}
+              rules={{ required: 'Body is required' }}
             />
             </div>
                 <div className={styles.form_button_element}>

@@ -9,6 +9,7 @@ import UserPostForm from "./components/user-post-form";
 import { IoMdAdd } from "react-icons/io";
 import UserPostsDisplayed from "./components/user-posts-displayed";
 import { getUserPosts } from "../../../../data/content/getUserPosts";
+
 const UserProfilePage = ():JSX.Element => {
     const userData = useSelector((state: IRootState) => state.user);
     const [isEditModeVisible,setIsEditModeVisible] = useState(false)

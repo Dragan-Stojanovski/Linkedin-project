@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import TextField from "../../../components/base-ui/text-field";
 import styles from "./RegisterPage.module.css";
-import { registerNewUser } from "../../../../data/user/requestUser";
+import { registerNewUser } from "../../../../data/user/registerUser";
 import BaseButton from "../../../components/base-ui/base-button";
 import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
