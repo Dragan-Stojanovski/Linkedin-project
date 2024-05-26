@@ -1,0 +1,23 @@
+.single_post_operations{
+    display:flex;
+    gap:5px;
+    margin-top:1em;
+}
+
+.single_post_operations button{
+    width:fit-content;
+}
+
+.single_user_post__wrapper{
+    width:40%;
+    margin:auto;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .single_user_post__wrapper{
+        width:95%;
+        margin:auto;
+    }
+
+}

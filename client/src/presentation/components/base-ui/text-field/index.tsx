@@ -12,7 +12,7 @@ import { Control, Controller, RegisterOptions } from "react-hook-form";
  * @param rules - Validation rules for the input field, based on react-hook-form's RegisterOptions.
  */
 export interface ITextFieldProps {
-  type: "text" | "password";
+  type: "text" | "password" | 'date';
   name: string;
   label: string;
   testId: string;

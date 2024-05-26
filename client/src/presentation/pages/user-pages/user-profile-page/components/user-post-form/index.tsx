@@ -4,9 +4,9 @@ import TextField from '../../../../../components/base-ui/text-field';
 import BaseButton from '../../../../../components/base-ui/base-button';
 import { IoCloseSharp } from "react-icons/io5";
 import { Dispatch, SetStateAction } from 'react';
-import { addUserPost } from '../../../../../../data/content/addUserPost';
+import { addUserPost } from '../../../../../../data/content/user-post/addUserPost';
 import QuillEditor from '../../../../../components/base-ui/quil-editor';
-import { editUserPost } from '../../../../../../data/content/editUserPost';
+import { editUserPost } from '../../../../../../data/content/user-post/editUserPost';
 import { IAddUserPostRequest } from '../../../../../../domain/usecases/content/userPosts';
 export interface IAddPostRequest {
     postTitle:string;
@@ -98,7 +98,6 @@ const UserPostForm = ({defaultValues, id,setIsPostFormVisible, getUserPostsHandl
 
  <BaseButton type="submit" content="Save" />
  </div>
-
         </form>
         </div>
         </>

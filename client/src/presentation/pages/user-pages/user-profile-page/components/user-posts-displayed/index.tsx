@@ -6,11 +6,14 @@ interface IUserPostsDisplayed{
 }
 
 const UserPostsDisplayed = ({userPosts}:IUserPostsDisplayed  ):JSX.Element => {
-    return(
+  const displayedPosts = userPosts
+  .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+  .slice(0, 3);
+  return(
         <>
-      {userPosts.length ? (
+      {displayedPosts.length ? (
         <div className={styles.user_posts__wrapper}>
-          {userPosts.map((item: IAddUserPostResponseData) => (
+          {displayedPosts.map((item: IAddUserPostResponseData) => (
             <Link
               key={item.postTitle}
               to={`/post?id=${item._id}`}

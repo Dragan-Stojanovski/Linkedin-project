@@ -11,13 +11,15 @@ import { Dispatch, SetStateAction } from 'react';
 export interface IEditUserRequest {
     username:string;
     email:string;
+    
 }
 
 export interface IUserEditModalProps {
     setIsEditModeVisible: Dispatch<SetStateAction<boolean>>;
+    fetchUserProfile:any;
 }
 
-const UserEditModal = ({setIsEditModeVisible}:IUserEditModalProps):JSX.Element => {
+const UserEditModal = ({setIsEditModeVisible, fetchUserProfile}:IUserEditModalProps):JSX.Element => {
     const userData = useSelector((state: IRootState) => state.user);
     const { handleSubmit, control } = useForm<IEditUserRequest>({
         mode: "onChange",
@@ -32,6 +34,7 @@ const UserEditModal = ({setIsEditModeVisible}:IUserEditModalProps):JSX.Element =
     async function editUserDetails (data:IEditUserRequest) {
              await editUserInfo(data);
              fetchUserDirectly(dispatch);
+             fetchUserProfile()
              setIsEditModeVisible(false) 
     }
 

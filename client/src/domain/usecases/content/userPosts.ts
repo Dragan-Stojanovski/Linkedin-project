@@ -8,6 +8,7 @@ export interface IAddUserPostResponseData {
     postTitle:string;
     postBody:string;
     userId:string;
+    createdAt:string;
 }
 
 export interface IAddUserPostResponse {

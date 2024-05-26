@@ -5,20 +5,19 @@
     margin:auto;
     margin-top:5em;
 }
-
-.user_profile_posts__heading{
-    display:flex;
+.section_heading {
+    display: flex;
     justify-content: space-between;
-    width:40%;
-    margin:auto;
+    width: 40%;
+    margin: auto;
 }
 
-.user_profile_posts__heading button {
-    border:none;
-    padding:10px;
-    border-radius:50%;
-    font-size:1.2rem;
-    cursor:pointer;
+.section_heading button {
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 .user_details__box button{
     border:none;

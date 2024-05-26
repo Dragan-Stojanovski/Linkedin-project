@@ -9,8 +9,8 @@ import { fetchUserDirectly } from "./domain/store/actions/getUserOwn";
 import { IRootState } from "./domain/usecases/store/rootState";
 import FeedPage from "./presentation/pages/feed-page";
 import UserProfilePage from "./presentation/pages/user-pages/user-profile-page";
-import RequireAuth from "./infra/utility/RequireAuth";
 import SinglePostPage from "./presentation/pages/user-pages/user-profile-page/components/single-post-page";
+import RequireAuth from "./infra/utility/RequireAuth";
 
 const App = () => {
   const userData = useSelector((state: IRootState) => state.user?.username);
@@ -26,7 +26,7 @@ const App = () => {
   const renderRegisterPage = userData ? <Navigate to="/" /> : <RegisterPage />;
   const renderLoginPage = userData ? <Navigate to={redirectPath} /> : <LoginPage />;
   const renderFeedPage = userData ? <FeedPage /> : <Navigate to="/login" />;
-  const renderProfilePage = <RequireAuth> <UserProfilePage /></RequireAuth> ;
+  const renderProfilePage = <UserProfilePage /> ;
   const renderSinglePostPage = <SinglePostPage />;
 
   return (
@@ -37,7 +37,7 @@ const App = () => {
         <Route path="/register" element={renderRegisterPage} />
         <Route path="/login" element={renderLoginPage} />
         <Route path="/feed" element={renderFeedPage} />
-        <Route path="/profile" element={renderProfilePage} />
+        <Route path="/profile/:userId" element={<RequireAuth >{renderProfilePage}</RequireAuth>} />
         <Route path="/post" element={renderSinglePostPage} />
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>

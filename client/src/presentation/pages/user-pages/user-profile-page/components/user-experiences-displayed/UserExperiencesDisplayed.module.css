@@ -1,0 +1,25 @@
+.user_experiences__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    margin-top:1em;
+  }
+  
+  .user_experience__box {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .user_experience__box h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .user_experience__box p {
+    margin: 5px 0;
+    font-size: 1rem;
+  }

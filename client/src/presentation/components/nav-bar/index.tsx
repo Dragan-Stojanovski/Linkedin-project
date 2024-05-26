@@ -26,7 +26,7 @@ const NavBar: React.FC = (): JSX.Element => {
   const userData = useSelector((state: IRootState) => state.user);
   const [userSearchResults, setUserSearchResults] = useState([])
   const userOptions = [
-    { id: 1, label: 'Profile', link: '/profile' },
+    { id: 1, label: 'Profile', link: `/profile/${userData?._id}` }, // Updated link
     { id: 2, label: 'Settings', link: '/settings' },
   ];
 const navigate = useNavigate();

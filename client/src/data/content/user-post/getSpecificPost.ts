@@ -1,5 +1,5 @@
-import { IAddUserPostResponse } from "../../domain/usecases/content/userPosts";
-import instance from "../../infra/http";
+import { IAddUserPostResponse } from "../../../domain/usecases/content/userPosts";
+import instance from "../../../infra/http";
 
 /**
  * Fetches a specific post by its id.

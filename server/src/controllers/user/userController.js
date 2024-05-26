@@ -9,6 +9,20 @@ const getUserOwnData = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+const getUserProfileById = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const userData = await User.findById(userId).select("-password");
+    if (!userData) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json(userData);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const searchUsers = async (req, res) => {
   const searchTerm = req.body.searchTerm;
   if (!searchTerm) {
@@ -43,4 +57,4 @@ const updateUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-module.exports = { getUserOwnData, searchUsers, updateUser };
+module.exports = { getUserOwnData, searchUsers, updateUser, getUserProfileById };

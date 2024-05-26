@@ -24,20 +24,17 @@ exports.addPost = async (req, res) => {
     }
   };
   
-  // Get posts for logged-in user
-  exports.getPosts = async (req, res) => {
+  exports.getUserPostsByUserId = async (req, res) => {
     try {
-      const userId = req.user.userId;
-  
+      const userId = req.params.userId;
       const posts = await Post.find({ userId });
-  
       res.status(200).json(posts);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Error in fetching posts: " + error.message });
     }
   };
-
+  
   exports.getPostByIdOrTitle = async (req, res) => {
     try {
       const { id, title } = req.query;

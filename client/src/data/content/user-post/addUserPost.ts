@@ -1,5 +1,5 @@
-import { IAddUserPostRequest } from "../../domain/usecases/content/userPosts";
-import instance from "../../infra/http";
+import { IAddUserPostRequest } from "../../../domain/usecases/content/userPosts";
+import instance from "../../../infra/http";
 
 /**
  * Adds a new user post.

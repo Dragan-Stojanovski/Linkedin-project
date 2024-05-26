@@ -9,6 +9,7 @@ import styles from "./BaseButton.module.css";
 export interface IBaseButtonProps {
   type: "button" | "submit" | "reset";
   content: string;
+  onClick?:()=>void;
 }
 
 /**
@@ -17,9 +18,9 @@ export interface IBaseButtonProps {
  * Props {@link IBaseButtonProps}
  * @returns The JSX Element representing a button.
  */
-const BaseButton = ({ type, content }: IBaseButtonProps): JSX.Element => {
+const BaseButton = ({ type, content, onClick }: IBaseButtonProps): JSX.Element => {
   return (
-    <button className={styles.base_btn} type={type}>
+    <button className={styles.base_btn} onClick={onClick} type={type}>
       {content}
     </button>
   );

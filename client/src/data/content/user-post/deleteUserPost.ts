@@ -1,4 +1,4 @@
-import instance from "../../infra/http";
+import instance from "../../../infra/http";
 
 /**
  * Deletes a post by its ID.
